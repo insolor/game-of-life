@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 pyxel = "^2.0.10"
+bitarray = "^2.9.2"
 
 
 [build-system]

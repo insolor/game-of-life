@@ -1,4 +1,4 @@
-
+from bitarray import bitarray
 
 
 class Block:
@@ -7,11 +7,13 @@ class Block:
     x: int
     y: int
 
-    rows: tuple[int]  # TODO: use tuple of bitarray: https://bitstring.readthedocs.io/en/stable/index.html
-    
-    def __init__(self) -> None:
-        self.rows = tuple(0 for _ in range(32))
-    
+    rows: tuple[bitarray]  # https://pypi.org/project/bitarray/
+
+    def __init__(self, x, y) -> None:
+        self.x = x
+        self.y = y
+        self.rows = tuple(bitarray(32) for _ in range(32))
+
     @property
     def coords(self):
         return (self.x, self.y)
