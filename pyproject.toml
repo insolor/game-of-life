@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "game-of-life"
+version = "0.1.0"
+description = ""
+authors = ["insolor <2442833+insolor@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyxel = "^2.0.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
