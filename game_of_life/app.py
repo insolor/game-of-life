@@ -4,6 +4,7 @@ import pyxel
 class App:
     def __init__(self):
         pyxel.init(1024, 768)
+        pyxel.mouse(True)
 
     def run(self):
         pyxel.run(self.update, self.draw)
