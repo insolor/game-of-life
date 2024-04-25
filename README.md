@@ -8,3 +8,15 @@ Plans
 - [ ] game loop
 
 See [models.py](game_of_life/models.py) for inner implementation of the game field.
+
+
+## Running
+
+```
+poetry run app
+```
+or
+```
+python -m game_of_life
+```
+from an activated venv
