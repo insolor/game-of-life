@@ -25,4 +25,3 @@ or
 ```
 pyxel run main.py
 ```
-or try online: https://kitao.github.io/pyxel/wasm/launcher/?run=insolor.game-of-life.main
