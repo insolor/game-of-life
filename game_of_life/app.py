@@ -2,11 +2,16 @@ import pyxel
 
 
 class App:
-    def __init__(self):
-        pyxel.init(1024, 768)
-        pyxel.mouse(True)
+    width: int
+    height: int
+    
+    def __init__(self, width=1024, height=768):
+        self.width = width
+        self.height = height
 
     def run(self):
+        pyxel.init(self.width, self.height)
+        pyxel.mouse(True)
         pyxel.run(self.update, self.draw)
 
     def update(self):
