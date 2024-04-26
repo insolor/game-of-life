@@ -1,5 +1,7 @@
 # Game of Life
 
+Classic [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
 Plans
 
 - [ ] implement gui using [pyxel](https://github.com/kitao/pyxel)
