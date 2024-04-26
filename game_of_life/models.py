@@ -1,6 +1,5 @@
 from bitarray import bitarray
 
-
 SIZE = 64
 
 

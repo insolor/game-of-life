@@ -1,3 +1,3 @@
-from .app import main
+from game_of_life.app import main
 
 main()
