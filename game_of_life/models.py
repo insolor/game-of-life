@@ -22,10 +22,12 @@ class Block:
         return (self.x, self.y)
     
     def __setitem__(self, local_coords: tuple[int, int], value: int) -> None:
-        ...
+        x, y = local_coords
+        self.rows[y][x] = value
     
     def __getitem__(self, local_coords: tuple[int, int]) -> int:
-        ...
+        x, y = local_coords
+        return self.rows[y][x]
 
 
 class Field:
