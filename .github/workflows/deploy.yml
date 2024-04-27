@@ -34,11 +34,7 @@ jobs:
 
       - name: Build application, prepare to deploy
         run: |
-          mkdir build
-          cp main.py build/main.py
-          cp -r game_of_life build/game_of_life
-          poetry run pyxel package build build/main.py
-          poetry run pyxel app2html build.pyxapp
+          make build.html
           mv build.html deploy/index.html
 
       - name: Deploy to Github Pages
