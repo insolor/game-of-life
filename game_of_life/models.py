@@ -1,6 +1,6 @@
 from game_of_life.simple_bitarray import BitArray64
 
-SIZE = 64
+BLOCK_SIZE = 32
 
 
 class Block:
@@ -9,16 +9,16 @@ class Block:
     x: int
     y: int
 
-    rows: tuple[BitArray64]  # https://pypi.org/project/bitarray/
+    rows: tuple[BitArray64, ...]
 
     def __init__(self, x, y) -> None:
         self.x = x
         self.y = y
-        self.rows = tuple(BitArray64() for _ in range(SIZE))
+        self.rows = tuple(BitArray64() for _ in range(BLOCK_SIZE))
 
     @property
     def coords(self) -> tuple[int, int]:
-        return (self.x, self.y)
+        return self.x, self.y
     
     def __setitem__(self, local_coords: tuple[int, int], value: int) -> None:
         x, y = local_coords
@@ -38,7 +38,7 @@ class Field:
 
     @staticmethod
     def convert_coords(x: int, y: int) -> tuple[tuple[int, int], tuple[int, int]]:
-        return tuple(zip(divmod(x, SIZE), divmod(y, SIZE)))
+        return tuple(zip(divmod(x, BLOCK_SIZE), divmod(y, BLOCK_SIZE)))
     
     def __setitem__(self, coords: tuple[int, int], value: int) -> None:
         x, y = coords
