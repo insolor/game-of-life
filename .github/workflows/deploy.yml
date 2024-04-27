@@ -28,7 +28,9 @@ jobs:
           cache-dependency-path: poetry.lock
 
       - name: Install dependencies
-        run: poetry install
+        run: |
+          poetry install
+          sudo apt install libsdl2-2.0-0
 
       - name: Build application, prepare to deploy
         run: |
