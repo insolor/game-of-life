@@ -29,8 +29,7 @@ def field_next_step(field: Field) -> Field:
                 if (x, y) in calculated:
                     continue
 
-                calculation_result = calculate_cell(field, x, y)
-                new_field[x, y] = calculation_result
+                new_field[x, y] = calculate_cell(field, x, y)
                 calculated.add((x, y))
 
     return new_field
