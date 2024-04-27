@@ -6,7 +6,8 @@ on:
       - main
     paths:
       - '.github/workflows/deploy.yml'
-      - '**/*.py'
+      - 'main.py'
+      - 'game_of_life/**/*.py'
       - 'deploy/*'
 
 permissions:
