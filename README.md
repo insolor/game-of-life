@@ -9,17 +9,19 @@ Plans
 
 - [x] infinite field:
   - field is split into 64x64 blocks, where each line in a block is an integer number, where each bit is a cell
+  - the whole field is a dict where keys are block coordinates and values are blocks  
+    See [models.py](game_of_life/models.py) for inner implementation of the game field.
 - [x] game loop
 - [ ] implement gui using [pyxel](https://github.com/kitao/pyxel)
   - [ ] display field on the screen
-    - [x] display one block
-    - [ ] display visible part of the field
+    - [x] draw one block
+    - [ ] draw visible part of the field
     - [ ] pan field view with the middle mouse button
     - [ ] change scale with the mouse wheel
   - [ ] controls (start/stop, step, clear buttons)
   - [ ] field editor
 
-See [models.py](game_of_life/models.py) for inner implementation of the game field.
+
 
 ## Online demo
 
