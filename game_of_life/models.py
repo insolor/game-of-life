@@ -19,6 +19,9 @@ class Block:
         x, y = local_coords
         return self.rows[y][x]
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.rows})"
+
 
 class Field:
     __slots__ = ("blocks",)
@@ -56,3 +59,6 @@ class Field:
             return 0
         
         return block[local_coords]
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.blocks})"
