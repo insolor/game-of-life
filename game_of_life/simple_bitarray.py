@@ -1,3 +1,6 @@
+from typing import Iterable
+
+
 BIT_MASKS = []
 
 _bit_mask = 1
@@ -22,6 +25,12 @@ class BitArray64:
             self.value |= 1 << index
         else:
             self.value ^= 1 << index
+    
+    def __iter__(self) -> Iterable[int]:
+        value = self.value
+        for _ in range(64):
+            yield value & 1
+            value >>= 1
     
     def __index__(self):
         return self.value
