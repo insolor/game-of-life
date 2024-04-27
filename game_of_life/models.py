@@ -10,11 +10,11 @@ class Block:
 
     def __init__(self) -> None:
         self.rows = tuple(BitArray64() for _ in range(BLOCK_SIZE))
-    
+
     def __setitem__(self, local_coords: tuple[int, int], value: int) -> None:
         x, y = local_coords
         self.rows[y][x] = value
-    
+
     def __getitem__(self, local_coords: tuple[int, int]) -> int:
         x, y = local_coords
         return self.rows[y][x]
@@ -35,11 +35,10 @@ class Field:
         block_x, local_x = divmod(x, BLOCK_SIZE)
         block_y, local_y = divmod(y, BLOCK_SIZE)
         return (block_x, block_y), (local_x, local_y)
-    
+
     def __setitem__(self, coords: tuple[int, int], value: int) -> None:
-        x, y = coords
-        block_coords, local_coords = self.convert_coords(x, y)
-        
+        block_coords, local_coords = self.convert_coords(*coords)
+
         block = self.blocks.get(block_coords)
         if not block:
             if not value:
@@ -47,17 +46,16 @@ class Field:
 
             block = Block()
             self.blocks[block_coords] = block
-        
+
         block[local_coords] = value
-    
+
     def __getitem__(self, coords: tuple[int, int]) -> int:
-        x, y = coords
-        block_coords, local_coords = self.convert_coords(x, y)
+        block_coords, local_coords = self.convert_coords(*coords)
         
         block = self.blocks.get(block_coords)
         if not block:
             return 0
-        
+
         return block[local_coords]
 
     def __repr__(self):
