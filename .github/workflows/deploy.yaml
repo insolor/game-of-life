@@ -1,0 +1,42 @@
+name: Deploy html
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy.yml'
+      - '*.py'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+          cache: "poetry"
+          cache-dependency-path: poetry.lock
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Build application, prepare to deploy
+        run: |
+          pyxel package . main.py
+          pyxel app2html game-of-life.pyxapp
+          md build
+          mv game-of-life.html build/index.html
+
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
