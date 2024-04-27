@@ -34,9 +34,12 @@ jobs:
 
       - name: Build application, prepare to deploy
         run: |
-          poetry run pyxel package . main.py
-          poetry run pyxel app2html game-of-life.pyxapp
-          mv game-of-life.html deploy/index.html
+          mkdir build
+          cp main.py build/main.py
+          cp -r game_of_life build/game_of_life
+          poetry run pyxel package build build/main.py
+          poetry run pyxel app2html build.pyxapp
+          mv build.html deploy/index.html
 
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
