@@ -48,6 +48,9 @@ class Field:
         
         block = self.blocks.get(block_coords)
         if not block:
+            if not value:
+                return  # Don't create a new block, if the value is empty
+
             block = Block(*block_coords)
             self.blocks[block_coords] = block
         
