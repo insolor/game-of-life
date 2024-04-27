@@ -29,3 +29,9 @@ or
 ```
 pyxel run main.py
 ```
+
+## Building to html
+```
+pyxel package . main.py
+pyxel app2html game-of-life.pyxapp
+```

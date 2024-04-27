@@ -1,4 +1,4 @@
-from bitarray import bitarray
+from game_of_life.simple_bitarray import BitArray64
 
 SIZE = 64
 
@@ -9,12 +9,12 @@ class Block:
     x: int
     y: int
 
-    rows: tuple[bitarray]  # https://pypi.org/project/bitarray/
+    rows: tuple[BitArray64]  # https://pypi.org/project/bitarray/
 
     def __init__(self, x, y) -> None:
         self.x = x
         self.y = y
-        self.rows = tuple(bitarray(SIZE) for _ in range(SIZE))
+        self.rows = tuple(BitArray64() for _ in range(SIZE))
 
     @property
     def coords(self) -> tuple[int, int]:
