@@ -8,8 +8,8 @@ Plans
   - [ ] display field on the screen
     - [x] display one block
     - [ ] display visible part of the field
-    - [ ] pan field with the middle
-    - [ ] change scale 
+    - [ ] pan field with the middle mouse button
+    - [ ] change scale with the mouse wheel
   - [ ] field editor
 - [x] infinite field:
   - field is split into 32x32 (or 64x64) blocks, where each line in a block is an integer, where each cell is a bit
