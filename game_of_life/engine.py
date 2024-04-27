@@ -2,13 +2,11 @@ from game_of_life.models import BLOCK_SIZE, Field
 
 
 def calculate_cell(field: Field, x: int, y: int) -> int:
-    s = 0
+    cell_value = field[x, y]
+    s = -cell_value
     for dx in range(-1, 2):
         for dy in range(-1, 2):
             s += field[x + dx, y + dy]
-
-    cell_value = field[x, y]
-    s -= cell_value
 
     if cell_value:
         return int(s in (2, 3))
