@@ -32,8 +32,8 @@ jobs:
 
       - name: Build application, prepare to deploy
         run: |
-          pyxel package . main.py
-          pyxel app2html game-of-life.pyxapp
+          poetry run pyxel package . main.py
+          poetry run pyxel app2html game-of-life.pyxapp
           md build
           mv game-of-life.html build/index.html
 
