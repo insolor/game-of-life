@@ -35,7 +35,7 @@ jobs:
       - name: Build application, prepare to deploy
         run: |
           make build.html
-          mv build.html deploy/index.html
+          # mv build.html deploy/index.html
           mv build.pyxapp deploy/build.pyxapp
 
       - name: Deploy to Github Pages

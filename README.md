@@ -28,19 +28,18 @@ Then run
 ```
 poetry run app
 ```
-or
+Or
 ```
 python -m game_of_life
 ```
-from an activated venv
+from an activated venv.
 
-or
+Or
 ```
 pyxel run main.py
 ```
 
 ## Building to html
 ```
-pyxel package . main.py
-pyxel app2html game-of-life.pyxapp
+make all
 ```
