@@ -36,7 +36,7 @@ jobs:
         run: |
           poetry run pyxel package . main.py
           poetry run pyxel app2html game-of-life.pyxapp
-          md build
+          mkdir build
           mv game-of-life.html build/index.html
 
       - name: Deploy to Github Pages
