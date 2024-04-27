@@ -13,9 +13,16 @@ Plans
 
 See [models.py](game_of_life/models.py) for inner implementation of the game field.
 
+## Online demo
 
-## Running
+https://insolor.github.io/game-of-life/
 
+## Running locally
+Install dependencies
+```
+poetry install
+```
+Then run
 ```
 poetry run app
 ```
