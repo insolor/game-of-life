@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - '.github/workflows/pytest.yml'
-      - '*.py'
+      - '**/*.py'
       - 'pyproject.toml'
       - 'poetry.lock'
 
