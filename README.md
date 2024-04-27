@@ -1,4 +1,7 @@
-# Game of Life
+# Game of Life 
+[![Tests](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml)
+[![Deploy](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml)
+[![Run in browser](https://img.shields.io/badge/Demo-run-blue)](https://insolor.github.io/game-of-life/)
 
 Classic [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
