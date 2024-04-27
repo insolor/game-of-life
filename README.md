@@ -6,12 +6,14 @@ Plans
 
 - [ ] implement gui using [pyxel](https://github.com/kitao/pyxel)
   - [ ] display field on the screen
+    - [x] display one block
+    - [ ] display visible part of the field
+    - [ ] pan field with the middle
+    - [ ] change scale 
   - [ ] field editor
-- [ ] infinite field:
+- [x] infinite field:
   - field is split into 32x32 (or 64x64) blocks, where each line in a block is an integer, where each cell is a bit
-- [ ] game loop
-  - [ ] game loop for one field block
-  - [ ] game loop for the full field
+- [x] game loop
 
 See [models.py](game_of_life/models.py) for inner implementation of the game field.
 
