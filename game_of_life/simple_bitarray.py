@@ -2,10 +2,12 @@ from typing import Iterable
 
 
 BIT_MASKS = []
+INVERTED_MASKS = []
 
 _bit_mask = 1
 for i in range(64):
     BIT_MASKS.append(_bit_mask)
+    INVERTED_MASKS.append(~_bit_mask)
     _bit_mask <<= 1
 
 
@@ -24,7 +26,7 @@ class BitArray64:
         if value:
             self.value |= 1 << index
         else:
-            self.value ^= 1 << index
+            self.value &= INVERTED_MASKS[index]
     
     def __iter__(self) -> Iterable[int]:
         value = self.value

@@ -2,19 +2,18 @@ from game_of_life.models import BLOCK_SIZE, Field
 
 
 def calculate_cell(field: Field, x: int, y: int) -> int:
-    cell_value = field[x, y]
     s = 0
     for dx in range(-1, 2):
         for dy in range(-1, 2):
             s += field[x + dx, y + dy]
 
-    print(x, y, cell_value, s)
+    cell_value = field[x, y]
     s -= cell_value
 
     if cell_value:
-        return s in (2, 3)
+        return int(s in (2, 3))
     else:
-        return s == 3
+        return int(s == 3)
 
 
 def field_next_step(field: Field) -> Field:
@@ -30,6 +29,8 @@ def field_next_step(field: Field) -> Field:
                 if (x, y) in calculated:
                     continue
 
-                new_field[x, y] = calculate_cell(field, x, y)
+                calculation_result = calculate_cell(field, x, y)
+                new_field[x, y] = calculation_result
+                calculated.add((x, y))
 
     return new_field

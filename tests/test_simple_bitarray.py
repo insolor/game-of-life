@@ -15,6 +15,10 @@ def test_bitarray_set():
     assert int(bitarray) == 1
     bitarray[1] = 1
     assert int(bitarray) == 3
+    bitarray[2] = 0
+    assert int(bitarray) == 3
+    bitarray[1] = 0
+    assert int(bitarray) == 1
 
 
 def test_bitarray_get():

@@ -11,7 +11,7 @@ class App:
     height: int
     field: Field
 
-    frame_delay: int = 100
+    frame_delay: int = 10
     next_display_frame: int | None = None
     
     def __init__(self, width=1024, height=768):
