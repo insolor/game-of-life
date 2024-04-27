@@ -6,7 +6,8 @@ def test_bitarray_to_int():
 
 
 def test_bitarray_repr():
-    assert str(BitArray64(123)) == "BitArray64(123)"
+    value = 123
+    assert str(BitArray64(value)) == f"BitArray64({hex(value)})"
 
 
 def test_bitarray_set():
