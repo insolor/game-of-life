@@ -4,21 +4,12 @@ BLOCK_SIZE = 64
 
 
 class Block:
-    __slots__ = ("x", "y", "rows")
-
-    x: int
-    y: int
+    __slots__ = ("rows",)
 
     rows: tuple[BitArray64, ...]
 
-    def __init__(self, x, y) -> None:
-        self.x = x
-        self.y = y
+    def __init__(self) -> None:
         self.rows = tuple(BitArray64() for _ in range(BLOCK_SIZE))
-
-    @property
-    def coords(self) -> tuple[int, int]:
-        return self.x, self.y
     
     def __setitem__(self, local_coords: tuple[int, int], value: int) -> None:
         x, y = local_coords
@@ -51,7 +42,7 @@ class Field:
             if not value:
                 return  # Don't create a new block, if the value is empty
 
-            block = Block(*block_coords)
+            block = Block()
             self.blocks[block_coords] = block
         
         block[local_coords] = value
