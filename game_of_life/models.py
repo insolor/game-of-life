@@ -1,6 +1,6 @@
 from game_of_life.simple_bitarray import BitArray64
 
-BLOCK_SIZE = 64
+BLOCK_SIZE = 32
 
 
 class Block:

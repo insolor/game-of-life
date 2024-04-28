@@ -8,7 +8,7 @@ Classic [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of
 Plans
 
 - [x] infinite field:
-  - field is split into 64x64 blocks, where each line in a block is an integer number, where each bit is a cell
+  - field is split into 32x32 (or 64x64) blocks, where each line in a block is an integer number, where each bit is a cell
   - the whole field is a dict where keys are block coordinates and values are blocks  
     See [models.py](game_of_life/models.py) for inner implementation of the game field.
 - [x] game loop
