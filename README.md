@@ -19,6 +19,8 @@ Plans
     - [ ] change scale with the mouse wheel
   - [ ] controls (start/stop, step, clear buttons)
   - [ ] field editor
+- [ ] optimizations: rewrite parts in cython?
+        
 
 
 
