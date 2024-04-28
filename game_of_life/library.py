@@ -1,13 +1,21 @@
 from game_of_life.models import Field
 
+GLIDER = """
+ X
+  X
+XXX
+""".strip("\n")
 
-def glider(field: Field, x: int, y: int):
-    #  X
-    #   X
-    # XXX
-    
-    field[x + 1, y + 0] = 1
-    field[x + 2, y + 1] = 1
-    field[x + 0, y + 2] = 1
-    field[x + 1, y + 2] = 1
-    field[x + 2, y + 2] = 1
+SPACESHIP = """
+X  X
+    X
+X   X
+ XXXX
+""".strip("\n")
+
+
+def put_object(field: Field, obj: str, x: int, y: int):
+    for i, row in enumerate(obj.splitlines()):
+        for j, item in enumerate(row):
+            if item != " ":
+                field[x+j, y+i] = 1

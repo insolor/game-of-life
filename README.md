@@ -14,8 +14,7 @@ Plans
 - [x] game loop
 - [ ] implement gui using [pyxel](https://github.com/kitao/pyxel)
   - [ ] display field on the screen
-    - [x] draw one block
-    - [ ] draw visible part of the field
+    - [x] draw visible part of the field
     - [ ] pan field view with the middle mouse button
     - [ ] change scale with the mouse wheel
   - [ ] controls (start/stop, step, clear buttons)
