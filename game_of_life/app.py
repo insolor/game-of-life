@@ -14,7 +14,7 @@ class App:
     frame_delay: int = 4
     next_display_frame: int | None = None
     
-    def __init__(self, width=1024, height=768):
+    def __init__(self, width=800, height=600):
         self.width = width
         self.height = height
         self.scale = 16
