@@ -19,7 +19,9 @@ Plans
     - [ ] change scale with the mouse wheel
   - [ ] controls (start/stop, step, clear buttons)
   - [ ] field editor
-- [ ] optimizations: rewrite parts in cython?
+- [ ] optimizations:
+  - [ ] use parallelization (blocks can be processed independently, so it's possible to process subsets of blocks in different threads/processes)
+  - [ ] rewrite parts in cython?
         
 
 
