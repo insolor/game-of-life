@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-build.pyxapp:
+build.pyxapp: $(wildcard game_of_life/*.py) pyproject.toml poetry.lock
 	rm -rf build
 	mkdir build
 	cp main.py build/main.py
