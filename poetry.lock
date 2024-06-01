@@ -86,19 +86,19 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 
 [[package]]
 name = "pyxel"
-version = "2.0.11"
+version = "2.0.13"
 description = "A retro game engine for Python"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyxel-2.0.11-cp37-abi3-macosx_10_12_x86_64.whl", hash = "sha256:683fe0141b5f5892d2858f28c9075e36c93a847d5c4a3cbe4f614ec0cbbc0567"},
-    {file = "pyxel-2.0.11-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:2be1e6340c0fccf0c7ff6e3d921aabf2ff874984fee9a2e64cdafaa801b4ac97"},
-    {file = "pyxel-2.0.11-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:624beeab0c947fad9bcde13abd4f8ce0bdd01c35819b2e95e3dace5369ba0d23"},
-    {file = "pyxel-2.0.11-cp37-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:fc86b64c3d305ab2761eeaf6e1c6af05f9937e4d2fec391d4f12791c03cbc2db"},
-    {file = "pyxel-2.0.11-cp37-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:b92ef2954931482ff124bbea58262ca3b7a27ad2dea8de4d9c0ba8ce30c5f65a"},
-    {file = "pyxel-2.0.11-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:001d171fd1385696223d9265dba3c3a73f14f7824eb215ca148e253e194ba3ca"},
-    {file = "pyxel-2.0.11-cp37-abi3-win32.whl", hash = "sha256:42a371fcbc879ef7680e1c11c68f1235db6ac7de5f089b40a01d01ece39246a1"},
-    {file = "pyxel-2.0.11-cp37-abi3-win_amd64.whl", hash = "sha256:ae7688549b88e03e4b9e9c23bf17a07ffeac462042de4b44f2a5c3729d334542"},
+    {file = "pyxel-2.0.13-cp37-abi3-macosx_10_12_x86_64.whl", hash = "sha256:469fc30d694f258129a1fe6548065ab13891151124413097e24e52b80f1b7d56"},
+    {file = "pyxel-2.0.13-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:bb1c76e49ebe9f9efd557063cfb078030702e04d8edec2d46ee871200eac748b"},
+    {file = "pyxel-2.0.13-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:88121e5da68d1586aa3d11c8fd47cc7445d38abe37f007242a246f5e139cc119"},
+    {file = "pyxel-2.0.13-cp37-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:c87519b4f99c1df6b161b4929c1a3f368b779fd3ad702e43f4ca28eb90672679"},
+    {file = "pyxel-2.0.13-cp37-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:bec3f156be830333750dbaf41700cb653323112e67be93ef975003705ea12d1b"},
+    {file = "pyxel-2.0.13-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eda9cfe6c9502539ca219293f49529cab9d8e58bc04e53342bf851b496549e0a"},
+    {file = "pyxel-2.0.13-cp37-abi3-win32.whl", hash = "sha256:e718c8771282b621348008545d24914feddb25cdb14ba886832a5ef0ae4e6bce"},
+    {file = "pyxel-2.0.13-cp37-abi3-win_amd64.whl", hash = "sha256:5e6faf835357d03f56157a461b978fcabbc7b66e9f8f68fd4d94f2619b1615cb"},
 ]
 
 [[package]]
@@ -115,4 +115,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "fb0a85048023a52aa3784454aa66e9c23b923bbd17a4d457c6d5f21bb4c4dcf5"
+content-hash = "f99c6a4c323d105211a67ae72499b88a04590cb212aa747792bcf21aef8dc1f1"
