@@ -38,8 +38,13 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install
-          # sudo apt install libsdl2-2.0-0
 
-      - name: Build application, prepare to deploy
+      - name: Run tests
         run: |
           poetry run pytest
+
+      - name: Test build
+        run: |
+          sudo apt install libsdl2-2.0-0
+          make clean
+          make all

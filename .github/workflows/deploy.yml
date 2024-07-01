@@ -8,7 +8,9 @@ on:
       - '.github/workflows/deploy.yml'
       - 'main.py'
       - 'game_of_life/**/*.py'
-      - 'deploy/*'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+
 
 permissions:
   contents: write
@@ -37,7 +39,10 @@ jobs:
       - name: Build application, prepare to deploy
         run: |
           make build.html
+          rm -rf deploy
+          mkdir deploy
           mv build.html deploy/index.html
+          touch deploy/.nojekyll
           # mv build.pyxapp deploy/build.pyxapp
 
       - name: Deploy to Github Pages
