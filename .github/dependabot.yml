@@ -7,14 +7,11 @@ updates:
     groups:
       dev-dependencies:
         patterns:
-          - "black"
           - "coverage"
           - "flake8*"
           - "hypothesis"
-          - "isort"
           - "mypy"
           - "pytest*"
-          - "refurb"
           - "ruff"
 
   - package-ecosystem: "github-actions"
