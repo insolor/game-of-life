@@ -25,6 +25,9 @@ class DisplayParams:
         self.pixel_offset_y = (self.pixel_offset_y - mouse_y) * new_scale / old_scale + mouse_y
         self.scale = new_scale
 
+    def screen_to_field_coords(self, screen_x: int, screen_y: int) -> tuple[int, int]:
+        return int((screen_x - self.pixel_offset_x) // self.scale), int((screen_y - self.pixel_offset_y) // self.scale)
+
 
 def display_field(field: "Field", params: DisplayParams) -> None:
     block_pixel_size = BLOCK_SIZE * params.scale

@@ -61,5 +61,8 @@ class Field:
 
         return block[local_coords]
 
+    def clear(self) -> None:
+        self.blocks = {}
+
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.blocks})"

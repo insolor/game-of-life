@@ -19,7 +19,8 @@ Plans
     - [x] change scale with the mouse wheel
     - [x] pan field view with the middle mouse button
   - [x] controls (start/stop, step buttons)
-  - [ ] edit with the mouse, clear the field
+  - [x] edit with the mouse, clear the field
+  - [ ] add a help screen
 - [ ] optimizations:
   - [ ] use parallelization (blocks can be processed independently, so it's possible to process subsets of blocks in different threads/processes)
   - [ ] rewrite parts in cython?

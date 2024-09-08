@@ -59,6 +59,7 @@ class App:
         self.panning()
         self.scaling()
         self.running_controls()
+        self.edit()
 
     def panning(self) -> None:
         if pyxel.btnr(pyxel.MOUSE_BUTTON_MIDDLE):
@@ -106,6 +107,21 @@ class App:
             old_scale = self.display_params.scale
             new_scale = max(1, old_scale * SCALING_MULTIPLIER**pyxel.mouse_wheel)
             self.display_params.scale_at(pyxel.mouse_x, pyxel.mouse_y, new_scale)
+
+    def edit(self) -> None:
+        if self.running:
+            return
+
+        if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
+            field_x, field_y = self.display_params.screen_to_field_coords(pyxel.mouse_x, pyxel.mouse_y)
+            self.field[field_x, field_y] = 1
+
+        if pyxel.btn(pyxel.MOUSE_BUTTON_RIGHT):
+            field_x, field_y = self.display_params.screen_to_field_coords(pyxel.mouse_x, pyxel.mouse_y)
+            self.field[field_x, field_y] = 0
+
+        if pyxel.btnr(pyxel.KEY_F12):
+            self.field.clear()
 
     def draw(self) -> None:
         pyxel.cls(0)
