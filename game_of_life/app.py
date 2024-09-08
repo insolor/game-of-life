@@ -25,8 +25,6 @@ class PanningParams:
 
 
 class App:
-    width: int
-    height: int
     field: Field
     display_params: DisplayParams
     panning_params: PanningParams | None = None
@@ -35,16 +33,12 @@ class App:
     next_display_frame: int | None = None
 
     def __init__(self, width: int = 800, height: int = 600) -> None:
-        self.width = width
-        self.height = height
         self.field = Field()
 
         scale = 16
         self.display_params = DisplayParams(
-            x_start=0,
-            y_start=0,
-            x_end=self.width // scale,
-            y_end=self.height // scale,
+            width=width,
+            height=height,
             scale=scale,
             pixel_offset_x=0,
             pixel_offset_y=0,
@@ -54,7 +48,7 @@ class App:
         put_object(self.field, GLIDER, 1, 10)
 
     def run(self) -> None:
-        pyxel.init(self.width, self.height)
+        pyxel.init(self.display_params.width, self.display_params.height)
         pyxel.mouse(visible=True)
         pyxel.run(self.update, self.draw)
 
@@ -89,7 +83,7 @@ class App:
         """
         if pyxel.mouse_wheel:
             old_scale = self.display_params.scale
-            new_scale = max(1, old_scale * SCALING_MULTIPLIER ** pyxel.mouse_wheel)
+            new_scale = max(1, old_scale * SCALING_MULTIPLIER**pyxel.mouse_wheel)
             self.display_params.scale = new_scale
 
             self.display_params.pixel_offset_x = (
