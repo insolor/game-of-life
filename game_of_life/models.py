@@ -1,3 +1,4 @@
+import functools
 from game_of_life.simple_bitarray import BitArray64
 
 BLOCK_SIZE = 32
@@ -31,6 +32,7 @@ class Field:
         self.blocks = {}
 
     @staticmethod
+    @functools.cache
     def _convert_to_block_coords(x: int, y: int) -> tuple[tuple[int, int], tuple[int, int]]:
         """
         Convert a field coordinates to block coordinates
