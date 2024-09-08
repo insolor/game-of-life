@@ -1,4 +1,5 @@
-# Game of Life 
+# Game of Life
+
 [![Tests](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml)
 [![Deploy](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml)
 [![Run in browser](https://img.shields.io/badge/Demo-run-blue)](https://insolor.github.io/game-of-life/)
@@ -22,35 +23,41 @@ Plans
 - [ ] optimizations:
   - [ ] use parallelization (blocks can be processed independently, so it's possible to process subsets of blocks in different threads/processes)
   - [ ] rewrite parts in cython?
-        
-
-
 
 ## Online demo
 
-https://insolor.github.io/game-of-life/
+<https://insolor.github.io/game-of-life/>
 
 ## Running locally
+
 Install dependencies
-```
+
+```shell
 poetry install
 ```
+
 Then run
-```
+
+```shell
 poetry run app
 ```
+
 Or
-```
+
+```shell
 python -m game_of_life
 ```
+
 from an activated venv.
 
 Or
-```
+
+```shell
 pyxel run main.py
 ```
 
 ## Building to html
-```
+
+```shell
 make all
 ```
