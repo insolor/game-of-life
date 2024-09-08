@@ -31,13 +31,16 @@ class Field:
         self.blocks = {}
 
     @staticmethod
-    def convert_coords(x: int, y: int) -> tuple[tuple[int, int], tuple[int, int]]:
+    def _convert_to_block_coords(x: int, y: int) -> tuple[tuple[int, int], tuple[int, int]]:
+        """
+        Convert a field coordinates to block coordinates
+        """
         block_x, local_x = divmod(x, BLOCK_SIZE)
         block_y, local_y = divmod(y, BLOCK_SIZE)
         return (block_x, block_y), (local_x, local_y)
 
     def __setitem__(self, coords: tuple[int, int], value: int) -> None:
-        block_coords, local_coords = self.convert_coords(*coords)
+        block_coords, local_coords = self._convert_to_block_coords(*coords)
 
         block = self.blocks.get(block_coords)
         if not block:
@@ -50,7 +53,7 @@ class Field:
         block[local_coords] = value
 
     def __getitem__(self, coords: tuple[int, int]) -> int:
-        block_coords, local_coords = self.convert_coords(*coords)
+        block_coords, local_coords = self._convert_to_block_coords(*coords)
 
         block = self.blocks.get(block_coords)
         if not block:
