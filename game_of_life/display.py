@@ -11,13 +11,15 @@ class DisplayParams:
     y_start: int
     x_end: int
     y_end: int
+    pixel_offset_x: int
+    pixel_offset_y: int
     scale: int = 16
 
 
 def display_field(field: Field, params: DisplayParams) -> None:
     for x in range(params.x_start, params.x_end):
-        screen_x = (x - params.x_start) * params.scale
+        screen_x = (x - params.x_start) * params.scale + params.pixel_offset_x
         for y in range(params.y_start, params.y_end):
             if field[x, y]:
-                screen_y = (y - params.y_start) * params.scale
+                screen_y = (y - params.y_start) * params.scale + params.pixel_offset_y
                 pyxel.rectb(screen_x, screen_y, params.scale, params.scale, 15)

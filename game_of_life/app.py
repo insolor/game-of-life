@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 import pyxel
 
 from game_of_life.display import DisplayParams, display_field
@@ -5,12 +7,29 @@ from game_of_life.engine import field_next_step
 from game_of_life.library import GLIDER, SPACESHIP, put_object
 from game_of_life.models import Field
 
+SCALING_MULTIPLIER = 1.25
+
+
+@dataclass
+class PanningParams:
+    initial_mouse_x: int
+    initial_mouse_y: int
+    initial_offset_x: int
+    initial_offset_y: int
+
+    def offset_x(self, mouse_x: int) -> int:
+        return self.initial_offset_x + mouse_x - self.initial_mouse_x
+
+    def offset_y(self, mouse_y: int) -> int:
+        return self.initial_offset_y + mouse_y - self.initial_mouse_y
+
 
 class App:
     width: int
     height: int
     field: Field
     display_params: DisplayParams
+    panning_params: PanningParams | None = None
 
     frame_delay: int = 4
     next_display_frame: int | None = None
@@ -27,6 +46,8 @@ class App:
             x_end=self.width // scale,
             y_end=self.height // scale,
             scale=scale,
+            pixel_offset_x=0,
+            pixel_offset_y=0,
         )
 
         put_object(self.field, SPACESHIP, 1, 1)
@@ -41,21 +62,43 @@ class App:
         if pyxel.btnr(pyxel.KEY_Q):
             pyxel.quit()
 
-        if pyxel.btnp(pyxel.MOUSE_BUTTON_MIDDLE):
-            # start view panning
-            ...
+        self.panning()
+        self.scaling()
 
+    def panning(self) -> None:
         if pyxel.btnr(pyxel.MOUSE_BUTTON_MIDDLE):
             # finish view panning
-            ...
+            self.panning_params = None
 
+        if self.panning_params:
+            # recalculate offset during the panning
+            self.display_params.pixel_offset_x = self.panning_params.offset_x(pyxel.mouse_x)
+            self.display_params.pixel_offset_y = self.panning_params.offset_y(pyxel.mouse_y)
+        elif pyxel.btnp(pyxel.MOUSE_BUTTON_MIDDLE):
+            # start view panning
+            self.panning_params = PanningParams(
+                initial_mouse_x=pyxel.mouse_x,
+                initial_mouse_y=pyxel.mouse_y,
+                initial_offset_x=self.display_params.pixel_offset_x,
+                initial_offset_y=self.display_params.pixel_offset_y,
+            )
+
+    def scaling(self) -> None:
+        """
+        Change the scale using the mouse wheel
+        """
         if pyxel.mouse_wheel:
-            # change the scale using the mouse wheel
             old_scale = self.display_params.scale
-            new_scale = max(1, old_scale + pyxel.mouse_wheel)
+            new_scale = max(1, old_scale * SCALING_MULTIPLIER ** pyxel.mouse_wheel)
             self.display_params.scale = new_scale
-            self.display_params.x_start = self.display_params.x_start * old_scale // new_scale
-            self.display_params.y_start = self.display_params.y_start * old_scale // new_scale
+
+            self.display_params.pixel_offset_x = (
+                self.display_params.pixel_offset_x - pyxel.mouse_x
+            ) * new_scale / old_scale + pyxel.mouse_x
+
+            self.display_params.pixel_offset_y = (
+                self.display_params.pixel_offset_y - pyxel.mouse_y
+            ) * new_scale / old_scale + pyxel.mouse_y
 
     def draw(self) -> None:
         pyxel.cls(0)

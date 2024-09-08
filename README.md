@@ -17,7 +17,7 @@ Plans
   - [ ] display field on the screen
     - [x] draw visible part of the field
     - [x] change scale with the mouse wheel
-    - [ ] pan field view with the middle mouse button
+    - [x] pan field view with the middle mouse button
   - [ ] controls (start/stop, step, clear buttons)
   - [ ] field editor
 - [ ] optimizations:
