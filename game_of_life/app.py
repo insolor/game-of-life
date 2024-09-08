@@ -84,15 +84,7 @@ class App:
         if pyxel.mouse_wheel:
             old_scale = self.display_params.scale
             new_scale = max(1, old_scale * SCALING_MULTIPLIER**pyxel.mouse_wheel)
-            self.display_params.scale = new_scale
-
-            self.display_params.pixel_offset_x = (
-                self.display_params.pixel_offset_x - pyxel.mouse_x
-            ) * new_scale / old_scale + pyxel.mouse_x
-
-            self.display_params.pixel_offset_y = (
-                self.display_params.pixel_offset_y - pyxel.mouse_y
-            ) * new_scale / old_scale + pyxel.mouse_y
+            self.display_params.scale_at(pyxel.mouse_x, pyxel.mouse_y, new_scale)
 
     def draw(self) -> None:
         pyxel.cls(0)

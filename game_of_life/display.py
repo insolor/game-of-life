@@ -13,6 +13,12 @@ class DisplayParams:
     pixel_offset_y: int
     scale: int = 16
 
+    def scale_at(self, mouse_x: int, mouse_y: int, new_scale: int) -> None:
+        old_scale = self.scale
+        self.pixel_offset_x = (self.pixel_offset_x - mouse_x) * new_scale / old_scale + mouse_x
+        self.pixel_offset_y = (self.pixel_offset_y - mouse_y) * new_scale / old_scale + mouse_y
+        self.scale = new_scale
+
 
 def display_field(field: Field, params: DisplayParams) -> None:
     x_start, x_offset = divmod(-params.pixel_offset_x, params.scale)
