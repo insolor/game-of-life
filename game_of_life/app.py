@@ -11,6 +11,9 @@ class App:
     height: int
     field: Field
 
+    x_shift: int = 0
+    y_shift: int = 0
+
     frame_delay: int = 4
     next_display_frame: int | None = None
     
@@ -31,10 +34,25 @@ class App:
     def update(self):
         if pyxel.btnr(pyxel.KEY_Q):
             pyxel.quit()
-    
+
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_MIDDLE):
+            # start view panning
+            ...
+
+        if pyxel.btnr(pyxel.MOUSE_BUTTON_MIDDLE):
+            # finish view panning
+            ...
+
+        if pyxel.mouse_wheel:
+            # change the scale using the mouse wheel
+            old_scale = self.scale
+            self.scale = max(1, self.scale + pyxel.mouse_wheel)
+            self.x_shift = self.x_shift * old_scale // self.scale
+            self.y_shift = self.y_shift * old_scale // self.scale
+
     def draw(self):
         pyxel.cls(0)
-        display_field(self.field, 0, 0, self.width // self.scale, self.height // self.scale, self.scale)
+        display_field(self.field, self.x_shift, self.y_shift, self.width // self.scale, self.height // self.scale, self.scale)
 
         if self.next_display_frame is None:
             self.update_next_display_frame()
