@@ -38,6 +38,10 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install
+      
+      - name: Lint using ruff
+        run: |
+          poetry run ruff check . --statistics
 
       - name: Run tests
         run: |
