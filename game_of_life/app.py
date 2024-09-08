@@ -58,7 +58,7 @@ class App:
 
         self.panning()
         self.scaling()
-        self.start_stop()
+        self.running_controls()
 
     def panning(self) -> None:
         if pyxel.btnr(pyxel.MOUSE_BUTTON_MIDDLE):
@@ -78,13 +78,25 @@ class App:
                 initial_offset_y=self.display_params.pixel_offset_y,
             )
 
-    def start_stop(self) -> None:
-        if pyxel.btnp(pyxel.KEY_SPACE):
+    def running_controls(self) -> None:
+        if pyxel.btnr(pyxel.KEY_SPACE):
             self.running = not self.running
 
-        if pyxel.btnp(pyxel.KEY_RETURN):
+        if pyxel.btnr(pyxel.KEY_RETURN):
             self.running = False
             self.step = True
+
+        if pyxel.btnr(pyxel.KEY_RIGHT):
+            if not self.running:
+                self.running = True
+            else:
+                self.frame_delay = max(1, self.frame_delay - 1)
+
+        if pyxel.btnr(pyxel.KEY_LEFT):
+            if not self.running:
+                self.running = True
+            else:
+                self.frame_delay = self.frame_delay + 1
 
     def scaling(self) -> None:
         """
@@ -113,3 +125,7 @@ class App:
 
 def main() -> None:
     App().run()
+
+
+if __name__ == "__main__":
+    main()
