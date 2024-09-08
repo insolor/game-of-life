@@ -32,6 +32,9 @@ class App:
     frame_delay: int = 4
     next_display_frame: int | None = None
 
+    running: bool = True
+    step: bool = False
+
     def __init__(self, width: int = 800, height: int = 600) -> None:
         self.field = Field()
 
@@ -55,6 +58,7 @@ class App:
 
         self.panning()
         self.scaling()
+        self.start_stop()
 
     def panning(self) -> None:
         if pyxel.btnr(pyxel.MOUSE_BUTTON_MIDDLE):
@@ -74,6 +78,14 @@ class App:
                 initial_offset_y=self.display_params.pixel_offset_y,
             )
 
+    def start_stop(self) -> None:
+        if pyxel.btnp(pyxel.KEY_SPACE):
+            self.running = not self.running
+
+        if pyxel.btnp(pyxel.KEY_RETURN):
+            self.running = False
+            self.step = True
+
     def scaling(self) -> None:
         """
         Change the scale using the mouse wheel
@@ -89,9 +101,11 @@ class App:
 
         if self.next_display_frame is None:
             self.update_next_display_frame()
-        elif pyxel.frame_count >= self.next_display_frame:
+        elif pyxel.frame_count >= self.next_display_frame and (self.running or self.step):
             self.field = field_next_step(self.field)
             self.update_next_display_frame()
+
+            self.step = False
 
     def update_next_display_frame(self) -> None:
         self.next_display_frame = pyxel.frame_count + self.frame_delay

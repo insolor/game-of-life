@@ -18,8 +18,8 @@ Plans
     - [x] draw visible part of the field
     - [x] change scale with the mouse wheel
     - [x] pan field view with the middle mouse button
-  - [ ] controls (start/stop, step, clear buttons)
-  - [ ] field editor
+  - [x] controls (start/stop, step buttons)
+  - [ ] edit with the mouse, clear the field
 - [ ] optimizations:
   - [ ] use parallelization (blocks can be processed independently, so it's possible to process subsets of blocks in different threads/processes)
   - [ ] rewrite parts in cython?
