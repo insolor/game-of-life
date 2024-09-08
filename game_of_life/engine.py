@@ -1,3 +1,6 @@
+from itertools import repeat
+from multiprocessing import Pool, cpu_count
+
 from game_of_life.models import BLOCK_SIZE, Field
 
 LIVE_RULES = (2, 3)
@@ -17,20 +20,31 @@ def calculate_cell(field: Field, x: int, y: int) -> int:
     return int(s in BORN_RULES)
 
 
-def field_next_step(field: Field) -> Field:
+def calculate_block(field: Field, block_x: int, block_y: int) -> Field:
     new_field = Field()
-    calculated = set()
+    field_x = block_x * BLOCK_SIZE
+    field_y = block_y * BLOCK_SIZE
 
-    for block_x, block_y in field.blocks:
-        field_x = block_x * BLOCK_SIZE
-        field_y = block_y * BLOCK_SIZE
+    for x in range(field_x - 1, field_x + BLOCK_SIZE + 1):
+        for y in range(field_y - 1, field_y + BLOCK_SIZE + 1):
+            new_field[x, y] = calculate_cell(field, x, y)
 
-        for x in range(field_x - 1, field_x + BLOCK_SIZE + 1):
-            for y in range(field_y - 1, field_y + BLOCK_SIZE + 1):
-                if (x, y) in calculated:
-                    continue
+    return new_field
 
-                new_field[x, y] = calculate_cell(field, x, y)
-                calculated.add((x, y))
+
+def calculate_block_func(args: tuple[Field, tuple[int, int]]) -> Field:
+    field, (block_x, block_y) = args
+    return calculate_block(field, block_x, block_y)
+
+
+def field_next_step(field: Field) -> Field:
+    print("Blocks:", len(field.blocks))
+    new_field = Field()
+
+    with Pool(processes=cpu_count() - 1) as pool:
+        fields = pool.imap_unordered(calculate_block_func, zip(repeat(field), field.blocks))
+
+        for f in fields:
+            new_field.merge(f)
 
     return new_field

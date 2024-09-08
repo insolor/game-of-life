@@ -1,4 +1,5 @@
 import functools
+
 from game_of_life.simple_bitarray import BitArray64
 
 BLOCK_SIZE = 32
@@ -19,6 +20,10 @@ class Block:
     def __getitem__(self, local_coords: tuple[int, int]) -> int:
         x, y = local_coords
         return self.rows[y][x]
+
+    def merge(self, other: "Block") -> None:
+        for y in range(BLOCK_SIZE):
+            self.rows[y].merge(other.rows[y])
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.rows})"
@@ -65,6 +70,13 @@ class Field:
 
     def clear(self) -> None:
         self.blocks = {}
+
+    def merge(self, other: "Field") -> None:
+        for block_coords, block in other.blocks.items():
+            if block_coords in self.blocks:
+                self.blocks[block_coords].merge(block)
+            else:
+                self.blocks[block_coords] = block
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.blocks})"

@@ -36,5 +36,8 @@ class BitArray64:
     def __index__(self) -> str:
         return self.value
 
+    def merge(self, other: "BitArray64") -> None:
+        self.value |= other.value
+
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({hex(self.value)})"
