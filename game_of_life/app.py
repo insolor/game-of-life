@@ -35,13 +35,10 @@ class App:
     def __init__(self, width: int = 800, height: int = 600) -> None:
         self.field = Field()
 
-        scale = 16
         self.display_params = DisplayParams(
             width=width,
             height=height,
-            scale=scale,
-            pixel_offset_x=0,
-            pixel_offset_y=0,
+            scale=16,
         )
 
         put_object(self.field, SPACESHIP, 1, 1)

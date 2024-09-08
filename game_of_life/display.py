@@ -15,9 +15,9 @@ DRAW_COLOR = pyxel.COLOR_WHITE
 class DisplayParams:
     width: int
     height: int
-    pixel_offset_x: int
-    pixel_offset_y: int
-    scale: int = 16
+    scale: int
+    pixel_offset_x: int = 0
+    pixel_offset_y: int = 0
 
     def scale_at(self, mouse_x: int, mouse_y: int, new_scale: int) -> None:
         old_scale = self.scale
@@ -47,7 +47,7 @@ def display_block(block: "Block", params: DisplayParams, screen_x: int, screen_y
             continue
 
         cell_screen_y = screen_y + y * params.scale
-        if not (0 < cell_screen_y < params.height):
+        if not (cell_screen_y + params.scale > 0 or cell_screen_y < params.height):
             continue
 
         for x, cell in enumerate(row):
@@ -56,7 +56,7 @@ def display_block(block: "Block", params: DisplayParams, screen_x: int, screen_y
 
             cell_screen_x = screen_x + x * params.scale
 
-            if not (0 < cell_screen_x < params.width):
+            if not (cell_screen_x + params.scale > 0 or cell_screen_x < params.width):
                 continue
 
             if params.scale <= 1:
