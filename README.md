@@ -14,7 +14,7 @@ Plans
     See [models.py](game_of_life/models.py) for inner implementation of the game field.
 - [x] game loop
 - [ ] implement gui using [pyxel](https://github.com/kitao/pyxel)
-  - [ ] display field on the screen
+  - [x] display field on the screen
     - [x] draw visible part of the field
     - [x] change scale with the mouse wheel
     - [x] pan field view with the middle mouse button
