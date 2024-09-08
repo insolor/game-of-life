@@ -1,5 +1,8 @@
 from game_of_life.models import BLOCK_SIZE, Field
 
+LIVE_RULES = (2, 3)
+BORN_RULES = (3,)
+
 
 def calculate_cell(field: Field, x: int, y: int) -> int:
     cell_value = field[x, y]
@@ -9,16 +12,16 @@ def calculate_cell(field: Field, x: int, y: int) -> int:
             s += field[x + dx, y + dy]
 
     if cell_value:
-        return int(s in (2, 3))
-    else:
-        return int(s == 3)
+        return int(s in LIVE_RULES)
+
+    return int(s in BORN_RULES)
 
 
 def field_next_step(field: Field) -> Field:
     new_field = Field()
     calculated = set()
 
-    for (block_x, block_y), block in field.blocks.items():
+    for block_x, block_y in field.blocks:
         field_x = block_x * BLOCK_SIZE
         field_y = block_y * BLOCK_SIZE
 

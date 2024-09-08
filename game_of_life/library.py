@@ -14,8 +14,8 @@ X   X
 """.strip("\n")
 
 
-def put_object(field: Field, obj: str, x: int, y: int):
+def put_object(field: Field, obj: str, x: int, y: int) -> None:
     for i, row in enumerate(obj.splitlines()):
         for j, item in enumerate(row):
             if item != " ":
-                field[x+j, y+i] = 1
+                field[x + j, y + i] = 1

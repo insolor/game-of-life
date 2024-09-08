@@ -19,7 +19,7 @@ class Block:
         x, y = local_coords
         return self.rows[y][x]
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.rows})"
 
 
@@ -28,7 +28,7 @@ class Field:
     blocks: dict[tuple[int, int], Block]
 
     def __init__(self) -> None:
-        self.blocks = dict()
+        self.blocks = {}
 
     @staticmethod
     def convert_coords(x: int, y: int) -> tuple[tuple[int, int], tuple[int, int]]:
@@ -51,12 +51,12 @@ class Field:
 
     def __getitem__(self, coords: tuple[int, int]) -> int:
         block_coords, local_coords = self.convert_coords(*coords)
-        
+
         block = self.blocks.get(block_coords)
         if not block:
             return 0
 
         return block[local_coords]
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.blocks})"

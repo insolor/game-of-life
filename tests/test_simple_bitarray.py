@@ -25,8 +25,8 @@ def test_bitarray_set():
 def test_bitarray_get():
     source_bits = "10110101"
     bitarray = BitArray64(int(source_bits, 2))
-    
-    for i, (source_bit, bit) in enumerate(zip(reversed(source_bits), bitarray)):
-        source_bit = int(source_bit)
+
+    for i, (source_bit_str, bit) in enumerate(zip(reversed(source_bits), bitarray, strict=False)):
+        source_bit = int(source_bit_str)
         assert bitarray[i] == source_bit
         assert bit == source_bit

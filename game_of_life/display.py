@@ -1,12 +1,23 @@
+from dataclasses import dataclass
+
 import pyxel
 
 from game_of_life.models import Field
 
 
-def display_field(field: Field, x_start, y_start, x_end, y_end, scale: int = 16) -> None:
-    for x in range(x_start, x_end):
-        screen_x = (x - x_start) * scale
-        for y in range(y_start, y_end):
+@dataclass
+class DisplayParams:
+    x_start: int
+    y_start: int
+    x_end: int
+    y_end: int
+    scale: int = 16
+
+
+def display_field(field: Field, params: DisplayParams) -> None:
+    for x in range(params.x_start, params.x_end):
+        screen_x = (x - params.x_start) * params.scale
+        for y in range(params.y_start, params.y_end):
             if field[x, y]:
-                screen_y = (y - y_start) * scale
-                pyxel.rectb(screen_x, screen_y, scale, scale, 15)
+                screen_y = (y - params.y_start) * params.scale
+                pyxel.rectb(screen_x, screen_y, params.scale, params.scale, 15)
