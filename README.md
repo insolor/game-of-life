@@ -42,18 +42,30 @@ Then run
 poetry run app
 ```
 
+Or using [poethepoet](https://github.com/nat-n/poethepoet):
+
+```shell
+poe run
+```
+
 Or
 
 ```shell
+poetry shell  # activate the virtual environment
 python -m game_of_life
 ```
 
-from an activated venv.
+Or
+
+```shell
+poetry shell
+pyxel run main.py
+```
 
 Or
 
 ```shell
-pyxel run main.py
+make run
 ```
 
 ## Building to html

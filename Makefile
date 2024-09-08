@@ -16,3 +16,6 @@ clean:
 	rm -rf build
 	rm -f build.pyxapp
 	rm -f build.html
+
+run:
+	poetry run app
