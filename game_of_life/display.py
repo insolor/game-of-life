@@ -4,6 +4,8 @@ import pyxel
 
 from game_of_life.models import Field
 
+DRAW_COLOR = pyxel.COLOR_WHITE
+
 
 @dataclass
 class DisplayParams:
@@ -31,4 +33,7 @@ def display_field(field: Field, params: DisplayParams) -> None:
         for y in range(int(y_start), int(y_end) + 1):
             if field[x, y]:
                 screen_y = (y - y_start) * params.scale - y_offset
-                pyxel.rectb(screen_x, screen_y, params.scale, params.scale, 15)
+                if params.scale <= 1:
+                    pyxel.pset(screen_x, screen_y, DRAW_COLOR)
+                else:
+                    pyxel.rectb(screen_x, screen_y, params.scale, params.scale, DRAW_COLOR)
