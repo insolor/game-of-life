@@ -1,6 +1,6 @@
 # Game of Life
 
-[![Tests](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/pytest.yml)
+[![Tests](https://github.com/insolor/game-of-life/actions/workflows/test.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/test.yml)
 [![Deploy](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml/badge.svg)](https://github.com/insolor/game-of-life/actions/workflows/deploy.yml)
 [![Run in browser](https://img.shields.io/badge/Demo-run-blue)](https://insolor.github.io/game-of-life/)
 
