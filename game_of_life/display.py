@@ -50,7 +50,7 @@ def display_block(block: "Block", params: DisplayParams, screen_x: int, screen_y
             continue
 
         cell_screen_y = screen_y + y * params.scale
-        if not (cell_screen_y + params.scale > 0 or cell_screen_y < params.height):
+        if not (cell_screen_y + params.scale > 0 and cell_screen_y < params.height):
             continue
 
         for x, cell in enumerate(row):
@@ -59,7 +59,7 @@ def display_block(block: "Block", params: DisplayParams, screen_x: int, screen_y
 
             cell_screen_x = screen_x + x * params.scale
 
-            if not (cell_screen_x + params.scale > 0 or cell_screen_x < params.width):
+            if not (cell_screen_x + params.scale > 0 and cell_screen_x < params.width):
                 continue
 
             if params.scale <= 1:
