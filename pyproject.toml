@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pyxel = "^2.3.18"
+pyxel = "^2.4.10"
 
 
 [tool.poetry.group.dev.dependencies]
