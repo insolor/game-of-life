@@ -11,8 +11,8 @@ pyxel = "^2.5.10"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.4.2"
-ruff = "^0.14.3"
+pytest = "^9.0.1"
+ruff = "^0.14.7"
 
 [build-system]
 requires = ["poetry-core"]
