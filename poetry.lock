@@ -92,19 +92,19 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "requests
 
 [[package]]
 name = "pyxel"
-version = "2.9.4"
+version = "2.9.5"
 description = "A retro game engine for Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "pyxel-2.9.4-cp310-abi3-macosx_10_13_x86_64.whl", hash = "sha256:c28f259d41db78e2ba0ba37aea5aeb02c81da7dd2a59794f18d51cf66aa6a650"},
-    {file = "pyxel-2.9.4-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:d93ef5a6d4d42f6b5ad2c20dde7699246928e777ddcfa886b2a080cf806a04c7"},
-    {file = "pyxel-2.9.4-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:995ae0578718cdef0c36cb5caa2c1af7379ef0c4f97e7de30400a178ccd7422b"},
-    {file = "pyxel-2.9.4-cp310-abi3-manylinux_2_28_armv7l.whl", hash = "sha256:c0e6d4a818b7e12da752f0c374108b75959b0e6845165a5c1635b1313ddcd8a1"},
-    {file = "pyxel-2.9.4-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:ba51ade14ea564858c8f028b6f733de5c5a2614fefa3dda9b394ee0501aaaeb3"},
-    {file = "pyxel-2.9.4-cp310-abi3-win32.whl", hash = "sha256:deee1e96790b00b3a6422d3fe571cca34bf3da5db175bad044efe26ed0fdd040"},
-    {file = "pyxel-2.9.4-cp310-abi3-win_amd64.whl", hash = "sha256:355967248c50a7b571c6e80be9df84cc4df074cbdee4cd4371e90147ecd4da29"},
+    {file = "pyxel-2.9.5-cp310-abi3-macosx_10_13_x86_64.whl", hash = "sha256:115d188166e5f26d3b1acae243155520008585d9b6bbf716aae582981eacc5ed"},
+    {file = "pyxel-2.9.5-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:0686b25b19d8b9c19ca23da2ce9d87525b0b727abfe243fc7359cca8a51a35f1"},
+    {file = "pyxel-2.9.5-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:7082e8938cd4f3416d414af5d99b3a9b95428b11e6a9d376ecbda171ad743972"},
+    {file = "pyxel-2.9.5-cp310-abi3-manylinux_2_28_armv7l.whl", hash = "sha256:805de6e52ccba799ebfa6339d32c8a002d7438b8e513fd8c73845b9ed4fff4fb"},
+    {file = "pyxel-2.9.5-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:e3095126593819bba73a45d7fffa66a172c864e950be8a04cf452d93025752cd"},
+    {file = "pyxel-2.9.5-cp310-abi3-win32.whl", hash = "sha256:f3394ca3c015095ee6383e72553189c71fd1f0d4ac73d905f5f9a167c86766db"},
+    {file = "pyxel-2.9.5-cp310-abi3-win_amd64.whl", hash = "sha256:be3d7dd0a1917517ad9bf916688a7b3714847547fe5b132b103dabfaad93d66f"},
 ]
 
 [[package]]
@@ -138,4 +138,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "3a8ff021d1799438a291527f111128744c96447e8940e88a857d7491a5ed1439"
+content-hash = "80271eb0cb2dc94f0508ed931bc0019aa9e745b757c45099009ea98ba28d0f81"
