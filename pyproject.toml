@@ -31,7 +31,9 @@ line-length = 120
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "COM812", "ISC001",
+    "COM812",
+    "CPY001",
+    "ISC001",
     "D",
 ]
 fixable = ["ALL"]
